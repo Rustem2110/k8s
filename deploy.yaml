@@ -1,0 +1,20 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+   name: botdeploy
+   labels:
+    app  : testbot 
+spec:
+    selector:
+      matchLabels:
+           project: testbot  
+    template:
+     metadata: 
+      labels: 
+       project: testbot  
+     spec: 
+      containers:
+      - name : botdeploy
+        image: 150762/bot1:latest
+        ports:
+        - containerPort: 80
